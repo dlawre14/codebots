@@ -1,4 +1,4 @@
-codebots
+#Codebots
 ========
+##A game about coding bots.
 
-A game about coding bots.
