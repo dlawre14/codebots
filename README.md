@@ -6,6 +6,9 @@ The premise of Codebots is to create a game focused on illustrating how useful a
 ####Purpose
 The purpose of Codebots is two-fold. The primary purpose is to make an educational game about programming that is also fun. The second goal is fulfill the requirnments of my degree program and complete a Capstone project. This software's goal is fulfill both of these purposes.
 
+####License (Temporar)
+As of the date of this addition (September 17th, 2014) all code contained within this repository is © 2014 Dylan Lawrence. This may be subject to change, but as of now, usage of this code is expressely forbidden unless permissions are obtained from the copyright holder.
+
 ######Small Notes
 - Unity and Git don't get along, when committing, close Unity fully
 - Unity's level editor is not amazing, 3DS Max is much better
