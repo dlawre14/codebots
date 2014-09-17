@@ -9,7 +9,7 @@ The purpose of Codebots is two-fold. The primary purpose is to make an education
 ####License (Temporary)
 As of the date of this addition (September 17th, 2014) all code contained within this repository is © 2014 Dylan Lawrence. This may be subject to change, but as of now, usage of this code is expressely forbidden unless permissions are obtained from the copyright holder.
 
-*This is not meant to sound menacing, simply to keep my options open with how I use this code, any concerns can be sent to me [here](dlawre14@slu.edu)*
+*This is not meant to sound menacing, simply to keep my options open with how I use this code, any concerns can be sent to me dlawre14@slu.edu*
 
 ######Small Notes
 - Unity and Git don't get along, when committing, close Unity fully
