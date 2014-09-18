@@ -7,6 +7,7 @@ public class GUIManager : MonoBehaviour {
 	//Because the UI Layouts Exist We Will Simply Define Functions Here For Use In the Code
 	
 	private bool docked = true;
+	private Text selected;
 	
 	//Functions for buttons
 	public void SlideClicked() {
