@@ -22,8 +22,8 @@ public class GUIManager : MonoBehaviour {
 		docked = false;
 		transform.Find ("Side Panel/Slide Button/Slide Text").GetComponent<Text>().text = "<<";
 
-		for (int i = 0; i<128; i+=3) {
-			transform.Find("Side Panel").GetComponent<RectTransform>().anchoredPosition = transform.Find("Side Panel").GetComponent<RectTransform>().anchoredPosition + new Vector2(3,0);
+		for (int i = 0; i < transform.Find ("Side Panel/Forward Button").GetComponent<RectTransform>().rect.width; i+=2) {
+			transform.Find("Side Panel").GetComponent<RectTransform>().anchoredPosition = transform.Find("Side Panel").GetComponent<RectTransform>().anchoredPosition + new Vector2(2,0);
 			yield return new WaitForSeconds(Time.deltaTime);
 		}
 	}
@@ -31,8 +31,9 @@ public class GUIManager : MonoBehaviour {
 	IEnumerator SlideIn(){
 		docked = true;
 		transform.Find ("Side Panel/Slide Button/Slide Text").GetComponent<Text>().text = ">>";
-		for (int i = 0; i<128; i+=3) {
-			transform.Find("Side Panel").GetComponent<RectTransform>().anchoredPosition = transform.Find("Side Panel").GetComponent<RectTransform>().anchoredPosition - new Vector2(3,0);
+		Debug.Log (transform.Find ("Side Panel/Forward Button").GetComponent<RectTransform> ().rect.width);
+		for (int i = 0; i<transform.Find ("Side Panel/Forward Button").GetComponent<RectTransform>().rect.width; i+=2) {
+			transform.Find("Side Panel").GetComponent<RectTransform>().anchoredPosition = transform.Find("Side Panel").GetComponent<RectTransform>().anchoredPosition - new Vector2(2,0);
 			yield return new WaitForSeconds(Time.deltaTime);
 		}
 	}
