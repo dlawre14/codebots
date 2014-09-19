@@ -28,10 +28,11 @@ public class DragMe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 		var image = m_DraggingIcon.AddComponent<Image>();
 		// The icon will be under the cursor.
 		// We want it to be ignored by the event system.
-		//m_DraggingIcon.AddComponent<IgnoreRaycast>();
+		m_DraggingIcon.AddComponent<IgnoreRaycast>();
 
 		image.sprite = GetComponent<Image>().sprite;
-		image.rectTransform.sizeDelta = image.rectTransform.sizeDelta * scale;
+		image.rectTransform.sizeDelta = gameObject.GetComponent<RectTransform> ().sizeDelta;
+		image.color = new Color (1f, 1f, 1, .33f);
 		//image.SetNativeSize();
 		
 		if (dragOnSurfaces)
