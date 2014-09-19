@@ -421,7 +421,7 @@ GameObject:
   - 114: {fileID: 266345072}
   - 114: {fileID: 266345071}
   m_Layer: 5
-  m_Name: Test Manuevers
+  m_Name: Test Maneuvers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1985,10 +1985,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5085f25bad5f8784e8d26124e33242e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manuever_objects:
+  Maneuver_objects:
   - {fileID: 1428735823}
   - {fileID: 557486911}
   - {fileID: 153340923}
+  - {fileID: 461315831}
+  - {fileID: 2023016536}
 --- !u!1 &1893750253
 GameObject:
   m_ObjectHideFlags: 0

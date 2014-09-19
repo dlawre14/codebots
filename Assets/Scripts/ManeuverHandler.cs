@@ -2,10 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ManueverHandler : MonoBehaviour {
+public class ManeuverHandler : MonoBehaviour {
 	
-	public GameObject[] manuever_objects;
-	private List<Manuever> moves = new List<Manuever>();
+	public GameObject[] Maneuver_objects;
+	private List<Maneuver> moves = new List<Maneuver>();
 		
 	// Update is called once per frame
 	void Update () {
@@ -14,13 +14,13 @@ public class ManueverHandler : MonoBehaviour {
 	
 	public void SetMoves() {
 		moves.Clear();
-		foreach (GameObject g in manuever_objects)
-			moves.Add (g.GetComponent<Manuever>());			
+		foreach (GameObject g in Maneuver_objects)
+			moves.Add (g.GetComponent<Maneuver>());			
 	}
 	
 	//Entirely for debugging
 	public void PrintMoves() {
-		foreach (Manuever m in moves)
+		foreach (Maneuver m in moves)
 			Debug.Log (m.name);
 	}
 }

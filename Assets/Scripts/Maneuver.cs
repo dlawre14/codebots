@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Manuever : MonoBehaviour {
+public class Maneuver : MonoBehaviour {
 	
 	//Public primarily for debugging
 	public string name;
@@ -10,6 +10,7 @@ public class Manuever : MonoBehaviour {
 		forward, reverse, left_turn, right_turn
 	}
 	
+	[Tooltip ("Select the type of maneuver this object represents")]
 	public MoveTypes move_type;
 	
 	// Update is called once per frame
@@ -17,7 +18,7 @@ public class Manuever : MonoBehaviour {
 	
 	}
 	
-	public void clone(Manuever other) {
+	public void clone(Maneuver other) {
 		name = other.name;
 		move_type = other.move_type;
 	}
