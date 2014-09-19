@@ -26,6 +26,10 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
 		Sprite dropSprite = GetDropSprite (data);
 		if (dropSprite != null)
 			receivingImage.overrideSprite = dropSprite;
+		
+		//Handle Maneuvers
+		GetComponent<Manuever>().clone(data.pointerDrag.GetComponent<Manuever>());
+		GetComponentInChildren<Text>().text = data.pointerDrag.GetComponent<Manuever>().name;
 	}
 
 	public void OnPointerEnter(PointerEventData data)
