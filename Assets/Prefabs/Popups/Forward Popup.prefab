@@ -610,7 +610,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' units/second'
+  m_Text: .1 units/second
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -724,10 +724,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 22400014}
   m_HandleRect: {fileID: 22400018}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: .00999999978
   m_MaxValue: 5
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: .100000001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -821,7 +821,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' seconds'
+  m_Text: .1 seconds
 --- !u!114 &11400036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -875,10 +875,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 22400028}
   m_HandleRect: {fileID: 22400024}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: .00999999978
   m_MaxValue: 3
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: .100000001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

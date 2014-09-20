@@ -31,7 +31,6 @@ public class ManeuverHandler : MonoBehaviour {
 			foreach (KeyValuePair<string, float> entry in moves[i].modifiers) {
 				modstring += entry.Key + ": " + entry.Value.ToString ("#.##") + " ";
 			}
-			Debug.Log ("Turn " + (i+1) + " bot performed: " + moves[i].name + " :: " + modstring);
 			boxtext += "Turn " + (i+1) + " bot performed: " + moves[i].name + " :: " + modstring + "\n";
 		}
 		outbox.GetComponent<Text>().text = boxtext;

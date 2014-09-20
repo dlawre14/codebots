@@ -32,7 +32,7 @@ public class Maneuver : MonoBehaviour {
 		mod_string = other.mod_string;
 		move_type = other.move_type;
 		
-		modifiers = other.modifiers;
+		modifiers = new Dictionary<string, float>(other.modifiers);
 	}
 	
 	public void ChangeModifier(string mod_name, float value) {
