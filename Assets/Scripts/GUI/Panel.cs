@@ -28,14 +28,14 @@ public class Panel : MonoBehaviour {
 			for (int i = 0; i < amount; i++) {
 				foreach (GameObject g in contains)
 					g.GetComponent<RectTransform>().anchoredPosition = g.GetComponent<RectTransform>().anchoredPosition + new Vector2 (1,0);
-				yield return new WaitForSeconds(Time.deltaTime);
+				yield return new WaitForSeconds(0);
 			}
 		}
 		else {
 			for (int i = 0; i < amount; i++) {
 				foreach (GameObject g in contains)
 					g.GetComponent<RectTransform>().anchoredPosition = g.GetComponent<RectTransform>().anchoredPosition - new Vector2 (1,0);
-				yield return new WaitForSeconds(Time.deltaTime);
+				yield return new WaitForSeconds(0);
 			}
 		}
 		working = false;
