@@ -14,6 +14,10 @@ public class TextChanger : MonoBehaviour {
 		GetComponent<Text>().text = seconds.ToString ("#.##") + " units/second";
 	}
 	
+	public void SetDegree(float degree) {
+		GetComponent<Text>().text = degree + " degree(s)";
+	}
+	
 	public void ChangeText(string text) {
 		GetComponent<Text>().text = text;	
 	}

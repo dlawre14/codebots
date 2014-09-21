@@ -2,30 +2,26 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class ForwardPopup : MonoBehaviour {
-	
-	private float[] mods = new float[2]; //0 is time, 1 is speed
+public class LeftPopup : MonoBehaviour {
+
+	private float[] mods = new float[1]; //0 is time, 1 is speed
 	
 	private GameObject creator;
 	private Maneuver parent_maneuver;
 	
-	private Slider time_bar;
-	private Slider speed_bar;
+	private Slider degree_bar;
 	
 	void Start() {
-		time_bar = transform.Find ("Duration Slider").GetComponent<Slider>();
-		speed_bar = transform.Find ("Speed Slider").GetComponent<Slider>();
+		degree_bar = transform.Find ("Degree Slider").GetComponent<Slider>();
 	}
-		
+	
 	// Update is called once per frame
 	void Update () {
-		mods[0] = time_bar.value;
-		mods[1] = speed_bar.value;
+		mods[0] = degree_bar.value;
 		
-		parent_maneuver.mod_string = "T: " + mods[0].ToString("#.##") + "\nSp: " + mods[1].ToString("#.##");
+		parent_maneuver.mod_string = "Deg: " + mods[0];
 		
-		parent_maneuver.ChangeModifier("duration", mods[0]);
-		parent_maneuver.ChangeModifier("speed", mods[1]);
+		parent_maneuver.ChangeModifier("degree", mods[0]);
 	}
 	
 	//Will be used for setting some pointers and things
@@ -53,4 +49,5 @@ public class ForwardPopup : MonoBehaviour {
 		transform.parent.Find ("Test Maneuvers").GetComponent<Button>().interactable = true;
 		Destroy (gameObject);
 	}
+	
 }

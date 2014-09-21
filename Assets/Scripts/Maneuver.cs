@@ -53,5 +53,13 @@ public class Maneuver : MonoBehaviour {
 			ForwardPopup fp = g.GetComponent<ForwardPopup>();
 			fp.Init(creator, parent);
 		}
+		else if (move_type == MoveTypes.left_turn || move_type == MoveTypes.right_turn) {
+			GameObject g = (GameObject) Instantiate (popup);
+			g.transform.parent = transform.parent;
+			g.GetComponent<RectTransform>().localPosition = Vector3.zero;
+			g.GetComponent<RectTransform>().localScale = Vector3.one;
+			LeftPopup fp = g.GetComponent<LeftPopup>();
+			fp.Init(creator, parent);
+		}
 	}
 }
