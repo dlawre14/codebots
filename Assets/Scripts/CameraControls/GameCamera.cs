@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameCamera : MonoBehaviour {
 	
-	public GameObject map;
+	public GameObject bot;
 	
 	// Use this for initialization
 	void Start () {
@@ -12,16 +12,16 @@ public class GameCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.mousePosition.x < 15)
-			transform.RotateAround(map.transform.position, Vector3.up, 20 * Time.deltaTime);
-		else if (Input.mousePosition.x > Screen.width - 15)
-			transform.RotateAround(map.transform.position, Vector3.up, -20 * Time.deltaTime);
+		if (Input.GetKey(KeyCode.A))
+			transform.RotateAround(bot.transform.position, Vector3.up, 30 * Time.deltaTime);
+		else if (Input.GetKey(KeyCode.D))
+			transform.RotateAround(bot.transform.position, Vector3.up, -30 * Time.deltaTime);
 			
-		if (Input.GetAxis("Mouse ScrollWheel") > 0) {
-			transform.Translate(Vector3.forward * Time.deltaTime * 10);
+		if (Input.GetKey(KeyCode.W)) {
+			transform.Translate(Vector3.forward * Time.deltaTime * 5);
 		}
-		else if (Input.GetAxis ("Mouse ScrollWheel") < 0) {
-			transform.Translate(-Vector3.forward * Time.deltaTime * 10);
+		else if (Input.GetKey(KeyCode.S)) {
+			transform.Translate(-Vector3.forward * Time.deltaTime * 5);
 		}
 	}
 }

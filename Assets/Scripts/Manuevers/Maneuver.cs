@@ -10,7 +10,7 @@ public class Maneuver : MonoBehaviour {
 	public string mod_string;
 	
 	public enum MoveTypes {
-		forward, reverse, left_turn, right_turn
+		forward, reverse, left_turn, right_turn, none
 	}
 	
 	[Tooltip ("Select the type of maneuver this object represents")]

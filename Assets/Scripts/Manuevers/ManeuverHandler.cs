@@ -11,11 +11,6 @@ public class ManeuverHandler : MonoBehaviour {
 	
 	public GameObject[] maneuver_objects;
 	private Maneuver[] moves = new Maneuver[NUM_MOVES];
-		
-	// Update is called once per frame
-	void Update () {
-		
-	}
 	
 	public void SetMoves() {
 		for (int i = 0; i<NUM_MOVES; i++) {
@@ -34,5 +29,12 @@ public class ManeuverHandler : MonoBehaviour {
 			boxtext += "Turn " + (i+1) + " bot performed: " + moves[i].name + " :: " + modstring + "\n";
 		}
 		outbox.GetComponent<Text>().text = boxtext;
+	}
+	
+	public void DoMoves() {
+		//Assume one bot for now
+		BotMover bot = GameObject.Find ("Bot").GetComponent<BotMover>();
+		bot.LoadMoves(moves);
+		bot.PerformMoves();
 	}
 }
