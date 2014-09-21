@@ -6,6 +6,9 @@ The premise of Codebots is to create a game focused on illustrating how useful a
 ####Purpose
 The purpose of Codebots is two-fold. The primary purpose is to make an educational game about programming that is also fun. The second goal is fulfill the requirnments of my degree program and complete a Capstone project. This software's goal is fulfill both of these purposes.
 
+###Current Implementation Details
+- How popups are done is incredibly poor. Much if not all of the GUI popup code could be rewritten and probably should be. As of now I'm going to consider it technical debt as it's not game crticial.
+
 ####License (Temporary)
 As of the date of this addition (September 17th, 2014) all code contained within this repository is © 2014 Dylan Lawrence. This may be subject to change, but as of now, usage of this code is expressely forbidden unless permissions are obtained from the copyright holder.
 
