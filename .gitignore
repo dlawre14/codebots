@@ -18,3 +18,10 @@ sysinfo.txt
 
 #Ignore Plugins for Editor
 /Assets/Plugins
+/Assets/NGUI
+
+#Ignore Builds
+/Builds
+
+#Vector Saves
+/Inkscape
