@@ -25,15 +25,15 @@ public class MapMaker : MonoBehaviour {
 			string[] t2 = s.Split (' ');
 			foreach (string s2 in t2) {
 				string[] t3 = s2.Split (','); //t3[0] is height t3[1] is texture
-				pos.x += 5;
+				pos.x += 1;
 				for (int i = 0; i < System.Convert.ToInt32(t3[0].Trim(trims)); i++) {
 					blocks.Add ((GameObject) Instantiate(block_prefab, pos, Quaternion.identity));
-					pos.y += 5;
+					pos.y += 1;
 				}
 				pos.y = 0;
 			}
 			pos.x = 0;
-			pos.z += 5;
+			pos.z += 1;
 		}
 	}
 }
