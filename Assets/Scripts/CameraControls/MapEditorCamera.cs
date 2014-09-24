@@ -25,7 +25,9 @@ public class MapEditorCamera : MonoBehaviour {
 			
 		}
 		
-		if (Input.GetKeyDown (KeyCode.Return) && !FindObjectOfType<Canvas>().GetComponent<Panel>().open)
+		if (Input.GetKeyDown (KeyCode.Return) && !FindObjectOfType<Canvas>().GetComponent<Panel>().open) {
 			mouseEnabled = !mouseEnabled;
+			Screen.lockCursor = !Screen.lockCursor;
+		}
 	}
 }
