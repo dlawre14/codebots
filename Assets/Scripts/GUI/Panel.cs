@@ -8,11 +8,11 @@ public class Panel : MonoBehaviour {
 	public GameObject[] contains;
 	
 	private bool working;
-	private bool open;
+	public bool open;
 	
 	void Start() {
 		working = false;
-		open = false;
+		open = true;
 	}
 	
 	public void CallSlideHorizontal(int amount) {
@@ -23,7 +23,15 @@ public class Panel : MonoBehaviour {
 		}
 	}
 	
-	public IEnumerator SlideHorizontal(int amount) {
+	public void CallSlideVertical (int amount) {
+		if (!working) {
+			StartCoroutine(SlideVertical(amount));
+			working  = true;
+			open = !open;
+		}
+	}
+	
+	public IEnumerator SlideHorizontal (int amount) {
 		if (!open) {
 			for (int i = 0; i < amount; i++) {
 				foreach (GameObject g in contains)
@@ -41,6 +49,22 @@ public class Panel : MonoBehaviour {
 		working = false;
 	}
 	
-	
+	public IEnumerator SlideVertical (int amount) {
+		if (open) {
+			for (int i = 0; i < amount; i++) {
+				foreach (GameObject g in contains)
+					g.GetComponent<RectTransform>().anchoredPosition = g.GetComponent<RectTransform>().anchoredPosition - new Vector2 (0,1);
+				yield return new WaitForSeconds(0);
+			}
+		}
+		else {
+			for (int i = 0; i < amount; i++) {
+				foreach (GameObject g in contains)
+					g.GetComponent<RectTransform>().anchoredPosition = g.GetComponent<RectTransform>().anchoredPosition + new Vector2 (0,1);
+				yield return new WaitForSeconds(0);
+			}
+		}
+		working = false;
+	}	
 	
 }

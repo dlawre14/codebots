@@ -4,8 +4,7 @@ using System.Collections;
 
 public class InputBox : MonoBehaviour {
 
-	private int x = 0;
-	private int y = 0;
+	private Vector2 pos;
 
 	// Use this for initialization
 	void Start () {
@@ -17,10 +16,22 @@ public class InputBox : MonoBehaviour {
 	
 	}
 
-	void SetPosition(int sx, int sy) {
-		x = sx;
-		y = sy;
-
-		GetComponentInChildren<Text> ().text = "(" + x + "," + y + ")";
+	public void SetPosition(int x, int y) {
+		pos = new Vector2 (x, y);
+		GetComponentInChildren<Text> ().text = "(" + pos.x + "," + pos.y + ")";
 	}
+	
+	public Vector2 GetPosition() {
+		return pos;
+	}
+	
+	public int GetValue() {
+		try {
+			return System.Convert.ToInt32(GetComponentInChildren<InputField>().value);
+		}
+		catch (System.FormatException) {
+			Debug.LogError("A field contains a non-integer value!");
+			return 0;
+		}
+	} 
 }

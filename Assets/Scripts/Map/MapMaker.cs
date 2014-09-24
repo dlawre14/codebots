@@ -4,36 +4,35 @@ using System.Collections.Generic;
 
 public class MapMaker : MonoBehaviour {
 
-	[Tooltip ("File cotaining map data")]
-	public TextAsset map_file;
-	[Tooltip ("List of possible textures for blocks")]
-	public Texture[] textures;
 	[Tooltip ("Block to make...")]
 	public GameObject block_prefab;
 
 	private List<GameObject> blocks = new List<GameObject>();
 
-
+	private static char[] delims = {',', '(', ')'};
+	
 	// Use this for initialization
-	void Start () {
-		char[] trims = {'(', ')'};
-
+	public void BuildMap (string[] map) {
+		foreach (Transform t in transform)
+			Destroy (t.gameObject);
 		Vector3 pos = Vector3.zero;
-
-		string[] text = map_file.text.Split ('\n');
-		foreach (string s in text) {
-			string[] t2 = s.Split (' ');
-			foreach (string s2 in t2) {
-				string[] t3 = s2.Split (','); //t3[0] is height t3[1] is texture
-				pos.x += 1;
-				for (int i = 0; i < System.Convert.ToInt32(t3[0].Trim(trims)); i++) {
-					blocks.Add ((GameObject) Instantiate(block_prefab, pos, Quaternion.identity));
-					pos.y += 1;
+		foreach (string s in map) {
+			string[] coords = s.Split(' ');
+			foreach (string coord in coords) {
+				if (coord != "") {
+					string[] nums = coord.Split(delims);
+					for (int i = 0; i < System.Convert.ToInt32(nums[1]); i++) {
+						//Needs texture stuff later
+						GameObject g = (GameObject) Instantiate (block_prefab, pos, Quaternion.identity);
+						g.transform.parent = transform;
+						pos.y += 1;
+					}
 				}
-				pos.y = 0;
+			pos.y = 0;
+		 	pos.x += 1;
 			}
-			pos.x = 0;
-			pos.z += 1;
+		pos.x = 0;
+		pos.z += 1;	
 		}
 	}
 }

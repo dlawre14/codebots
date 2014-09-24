@@ -18,10 +18,10 @@ public class GameCamera : MonoBehaviour {
 			transform.RotateAround(bot.transform.position, Vector3.up, -30 * Time.deltaTime);
 			
 		if (Input.GetKey(KeyCode.W)) {
-			transform.Translate(Vector3.forward * Time.deltaTime * 5);
+			transform.Translate(Vector3.forward * Time.deltaTime * 50);
 		}
 		else if (Input.GetKey(KeyCode.S)) {
-			transform.Translate(-Vector3.forward * Time.deltaTime * 5);
+			transform.Translate(-Vector3.forward * Time.deltaTime * 50);
 		}
 	}
 }
