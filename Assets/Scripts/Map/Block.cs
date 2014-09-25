@@ -4,8 +4,7 @@ using System.Collections;
 public class Block : MonoBehaviour {
 
 	public Texture texture;
-
-	public int[,] test;
+	public bool spawn;
 
 	// Use this for initialization
 	void Start () {
