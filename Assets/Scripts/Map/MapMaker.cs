@@ -20,30 +20,42 @@ public class MapMaker : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		string text = map_file.text;
-		string[] lines = text.Split('\n');
-		int width = lines.Length;
-		int length = lines[0].Split (' ').Length;
+				string text = map_file.text;
+				string[] lines = text.Split ('\n');
+				int width = lines.Length;
+				int length = lines [0].Split (' ').Length;
 		
-		blocks = new Block[width+1,length+1,25]; //assume no stack is taller than 25
-		Vector3 pos = Vector3.zero;
+				blocks = new Block[width, length, 25]; //assume no stack is taller than 25
+				Vector3 pos = Vector3.zero;
 		
-		foreach (string line in lines) {
-			string[] vals = line.Split (delims);
-			foreach (string val in vals) {
-				if (val != "") {
-					for (int i = 0; i < System.Convert.ToInt32(val); i++) {
-						GameObject g = (GameObject) Instantiate(block_prefab, pos, Quaternion.identity);
-						g.transform.parent = transform;
-						blocks[(int)pos.x, (int)pos.z, (int)pos.y] = g.GetComponent<Block>();
-						pos.y += 1;
+				foreach (string line in lines) {
+						string[] vals = line.Split (delims);
+						foreach (string val in vals) {
+								if (val != "") {
+										for (int i = 0; i < System.Convert.ToInt32(val); i++) {
+												GameObject g = (GameObject)Instantiate (block_prefab, pos, Quaternion.identity);
+												g.transform.parent = transform;
+												blocks [(int)pos.x, (int)pos.z, (int)pos.y] = g.GetComponent<Block> ();
+												pos.y += 1;
+										}
+										pos.y = 0;
+										pos.z += 1;
+								}
+						}
+						pos.z = 0;
+						pos.x += 1;
+				}
+
+				//start at 1 end at width/length -1 to ignore the walls, assume height 25 is a ceiling
+		for (int i=1; i<width-1; i++) {
+			for (int j=1; j<length-1; j++) {
+				for (int k=0; k<24;k++) {
+					if (blocks[i,j,k] != null) {
+						blocks[i,j,k].SetPos (new Vector3 (i,j,k));
+						blocks[i,j,k].SetMap (blocks);
 					}
-					pos.y = 0;
-					pos.z += 1;
 				}
 			}
-			pos.z = 0;
-			pos.x += 1;
 		}
 		
 		//for now we'll use this to force a spawn point

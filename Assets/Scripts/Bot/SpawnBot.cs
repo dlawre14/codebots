@@ -13,7 +13,8 @@ public class SpawnBot : MonoBehaviour {
 		if (!spawned && map.GetComponent<MapMaker>().complete) {
 			foreach (Block b in map.GetComponent<MapMaker>().GetBlocks()) {
 				if (b && b.spawn) {
-					Instantiate(bot, b.transform.position + Vector3.up, Quaternion.identity);
+					GameObject g = (GameObject) Instantiate(bot, b.transform.position + Vector3.up, Quaternion.identity);
+					g.GetComponent<BotMover>().SetCurrentBlock(b);
 				}
 			}
 			spawned = true;
