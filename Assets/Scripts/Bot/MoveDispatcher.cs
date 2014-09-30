@@ -14,4 +14,12 @@ public class MoveDispatcher : MonoBehaviour {
 	public void DispatchMoveBackward () {
 		GameObject.Find ("Bot(Clone)").GetComponent<BotMover>().MoveBackward();
 	}
+
+	public void DispatchMoveLeft() {
+		GameObject.Find ("Bot(Clone)").GetComponent<BotMover>().MoveLeft();
+	}
+
+	public void DispatchMoveRight() {
+
+	}
 }
