@@ -20,6 +20,6 @@ public class MoveDispatcher : MonoBehaviour {
 	}
 
 	public void DispatchMoveRight() {
-
+		GameObject.Find ("Bot(Clone)").GetComponent<BotMover>().MoveRight();
 	}
 }

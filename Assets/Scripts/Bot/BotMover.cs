@@ -22,40 +22,69 @@ public class BotMover : MonoBehaviour {
 	}
 
 	public void MoveForward() {
-	switch(dir) {
-		case direction.north:
-			if (curr_block.IsMoveValid (Vector3.up)) { //this uses up since the y component of block position is our z axes in world space
-				Debug.Log ("Valid move!");
-				curr_block = curr_block.GetBlock(Vector3.up);
-				transform.position += transform.forward; 
+		switch(dir) {
+			case direction.north:
+				if (curr_block.IsMoveValid (Vector3.up)) { //this uses up since the y component of block position is our z axes in world space
+					//Debug.Log ("Valid move!");
+					curr_block = curr_block.GetBlock(Vector3.up);
+					transform.position += transform.forward; 
+				}
+				break;
+			case direction.south:
+				if (curr_block.IsMoveValid (-Vector3.up)) { //this uses up since the y component of block position is our z axes in world space
+					//Debug.Log ("Valid move!");
+					curr_block = curr_block.GetBlock(-Vector3.up);
+					transform.position += transform.forward; 
+				}
+				break;
+			case direction.east:
+				if (curr_block.IsMoveValid (Vector3.right)) { //this uses up since the y component of block position is our z axes in world space
+					//Debug.Log ("Valid move!");
+					curr_block = curr_block.GetBlock(Vector3.right);
+					transform.position += transform.forward; 
+				}
+				break;
+			case direction.west:
+				if (curr_block.IsMoveValid (-Vector3.right)) { //this uses up since the y component of block position is our z axes in world space
+					//Debug.Log ("Valid move!");
+					curr_block = curr_block.GetBlock(-Vector3.right);
+					transform.position += transform.forward; 
+				}
+				break;
 			}
-			break;
-		case direction.south:
-			if (curr_block.IsMoveValid (-Vector3.up)) { //this uses up since the y component of block position is our z axes in world space
-				Debug.Log ("Valid move!");
-				curr_block = curr_block.GetBlock(-Vector3.up);
-				transform.position += transform.forward; 
-			}
-			break;
-		case direction.east:
-			if (curr_block.IsMoveValid (Vector3.right)) { //this uses up since the y component of block position is our z axes in world space
-				Debug.Log ("Valid move!");
-				curr_block = curr_block.GetBlock(Vector3.right);
-				transform.position += transform.forward; 
-			}
-			break;
-		case direction.west:
-			if (curr_block.IsMoveValid (-Vector3.right)) { //this uses up since the y component of block position is our z axes in world space
-				Debug.Log ("Valid move!");
-				curr_block = curr_block.GetBlock(-Vector3.right);
-				transform.position += transform.forward; 
-			}
-			break;
-		}
 	}
 
 	public void MoveBackward() {
-		return;
+		switch(dir) {
+		case direction.north:
+			if (curr_block.IsMoveValid (-Vector3.up)) { //this uses up since the y component of block position is our z axes in world space
+				//Debug.Log ("Valid move!");
+				curr_block = curr_block.GetBlock(-Vector3.up);
+				transform.position -= transform.forward; 
+			}
+			break;
+		case direction.south:
+			if (curr_block.IsMoveValid (Vector3.up)) { //this uses up since the y component of block position is our z axes in world space
+				//Debug.Log ("Valid move!");
+				curr_block = curr_block.GetBlock(Vector3.up);
+				transform.position -= transform.forward; 
+			}
+			break;
+		case direction.east:
+			if (curr_block.IsMoveValid (-Vector3.right)) { //this uses up since the y component of block position is our z axes in world space
+				//Debug.Log ("Valid move!");
+				curr_block = curr_block.GetBlock(-Vector3.right);
+				transform.position -= transform.forward; 
+			}
+			break;
+		case direction.west:
+			if (curr_block.IsMoveValid (Vector3.right)) { //this uses up since the y component of block position is our z axes in world space
+				//Debug.Log ("Valid move!");
+				curr_block = curr_block.GetBlock(Vector3.right);
+				transform.position -= transform.forward; 
+			}
+			break;
+		}
 	}
 
 	public void MoveLeft() { //still needs to handle all the movements
@@ -66,12 +95,22 @@ public class BotMover : MonoBehaviour {
 					transform.position += transform.forward;
 					transform.Rotate(0, -90, 0);
 					dir = direction.west;
+					MoveForward();
+				}
+				else {
+					transform.Rotate(0, -90, 0);
+					dir = direction.west;
 				}
 				break;
 			case direction.south:
 				if (curr_block.IsMoveValid (-Vector3.up)) {
 					curr_block = curr_block.GetBlock (-Vector3.up);
 					transform.position += transform.forward;
+					transform.Rotate(0, -90, 0);
+					dir = direction.east;
+					MoveForward();
+				}
+				else {
 					transform.Rotate(0, -90, 0);
 					dir = direction.east;
 				}
@@ -82,6 +121,11 @@ public class BotMover : MonoBehaviour {
 					transform.position += transform.forward;
 					transform.Rotate(0, -90, 0);
 					dir = direction.north;
+					MoveForward();
+				}
+				else {
+					transform.Rotate(0, -90, 0);
+					dir = direction.north;
 				}
 				break;
 			case direction.west:
@@ -90,8 +134,70 @@ public class BotMover : MonoBehaviour {
 					transform.position += transform.forward;
 					transform.Rotate(0, -90, 0);
 					dir = direction.south;
+					MoveForward();
+				}
+				else {
+					transform.Rotate(0, -90, 0);
+					dir = direction.south;
 				}
 				break;
+		}
+	}
+
+	public void MoveRight() {
+		switch(dir) {
+		case direction.north:
+			if (curr_block.IsMoveValid (Vector3.up)) {
+				curr_block = curr_block.GetBlock (Vector3.up);
+				transform.position += transform.forward;
+				transform.Rotate(0, 90, 0);
+				dir = direction.east;
+				MoveForward();
+			}
+			else {
+				transform.Rotate(0, 90, 0);
+				dir = direction.east;
+			}
+			break;
+		case direction.south:
+			if (curr_block.IsMoveValid (-Vector3.up)) {
+				curr_block = curr_block.GetBlock (-Vector3.up);
+				transform.position += transform.forward;
+				transform.Rotate(0, 90, 0);
+				dir = direction.west;
+				MoveForward();
+			}
+			else {
+				transform.Rotate(0, 90, 0);
+				dir = direction.west;
+			}
+			break;
+		case direction.east:
+			if (curr_block.IsMoveValid (Vector3.right)) {
+				curr_block = curr_block.GetBlock (Vector3.right);
+				transform.position += transform.forward;
+				transform.Rotate(0, 90, 0);
+				dir = direction.south;
+				MoveForward();
+			}
+			else {
+				transform.Rotate(0, 90, 0);
+				dir = direction.south;
+			}
+			break;
+		case direction.west:
+			if (curr_block.IsMoveValid (-Vector3.right)) {
+				curr_block = curr_block.GetBlock (-Vector3.right);
+				transform.position += transform.forward;
+				transform.Rotate(0, 90, 0);
+				dir = direction.north;
+				MoveForward();
+			}
+			else {
+				transform.Rotate(0, 90, 0);
+				dir = direction.north;
+			}
+			break;
 		}
 	}
 }
