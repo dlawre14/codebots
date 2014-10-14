@@ -11,18 +11,22 @@ public class MoveDispatcher : MonoBehaviour {
 
 	public void DispatchMoveForward () {
 		GameObject.Find ("Bot(Clone)").GetComponent<BotMover>().MoveForward();
+		GameObject.Find ("Output Log").GetComponent<Text>().text += (System.DateTime.Now + " -- Handling move: Forward" + "\n");
 	}
 
 	public void DispatchMoveBackward () {
 		GameObject.Find ("Bot(Clone)").GetComponent<BotMover>().MoveBackward();
+		GameObject.Find ("Output Log").GetComponent<Text>().text += (System.DateTime.Now + " -- Handling move: Backward" + "\n");
 	}
 
 	public void DispatchMoveLeft() {
 		GameObject.Find ("Bot(Clone)").GetComponent<BotMover>().MoveLeft();
+		GameObject.Find ("Output Log").GetComponent<Text>().text += (System.DateTime.Now + " -- Handling move: Left" + "\n");
 	}
 
 	public void DispatchMoveRight() {
 		GameObject.Find ("Bot(Clone)").GetComponent<BotMover>().MoveRight();
+		GameObject.Find ("Output Log").GetComponent<Text>().text += (System.DateTime.Now + " -- Handling move: Right" + "\n");
 	}
 
 	public void DispatchSubroutine(TextAsset input) {
@@ -36,6 +40,7 @@ public class MoveDispatcher : MonoBehaviour {
 		Parser p = new Parser();
 		List<string> moves = p.Parse (input.value);
 		StartCoroutine (SubroutineDispatcher(moves));
+		input.value = "";
 	}
 
 	IEnumerator SubroutineDispatcher(List<string> moves) {
