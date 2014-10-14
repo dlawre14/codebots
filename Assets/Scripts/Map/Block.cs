@@ -70,4 +70,11 @@ public class Block : MonoBehaviour {
 		texture = t;
 		gameObject.renderer.material.mainTexture = texture;
 	}
+
+	public void Hit(Texture t) {
+		if (gameObject.renderer.material.mainTexture == texture)
+			gameObject.renderer.material.mainTexture = t;
+		else
+			gameObject.renderer.material.mainTexture = texture;
+	}
 }

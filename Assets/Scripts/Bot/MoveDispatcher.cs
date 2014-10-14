@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -28,6 +29,12 @@ public class MoveDispatcher : MonoBehaviour {
 		Parser p = new Parser();
 		List<string> moves = p.Parse (input.text);
 		Debug.Log ("Dispatching moves...");
+		StartCoroutine (SubroutineDispatcher(moves));
+	}
+
+	public void DispatchSubroutine(InputField input) {
+		Parser p = new Parser();
+		List<string> moves = p.Parse (input.value);
 		StartCoroutine (SubroutineDispatcher(moves));
 	}
 
