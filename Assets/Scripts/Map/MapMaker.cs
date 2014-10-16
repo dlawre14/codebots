@@ -37,7 +37,7 @@ public class MapMaker : MonoBehaviour {
 						List<string> parsed = new List<string>();
 						foreach (string val in vals) {
 							if (val != "" && val != ",") {
-								Debug.Log ("adding val: " + val);
+								//Debug.Log ("adding val: " + val);
 								parsed.Add (val);
 							}
 						}
@@ -48,7 +48,7 @@ public class MapMaker : MonoBehaviour {
 									blocks [(int)pos.x, (int)pos.z, (int)pos.y] = g.GetComponent<Block> ();
 									if (texture_names.FindIndex (str => str == parsed[1]) > -1) {
 									int z = texture_names.FindIndex(str => str == parsed[1]);
-									Debug.Log(parsed[1] + " is at " + z);
+									//Debug.Log(parsed[1] + " is at " + z);
 										blocks [(int)pos.x, (int)pos.z, (int)pos.y].UpdateTexture (textures[z]);
 									}
 									pos.y += 1;

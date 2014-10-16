@@ -1,6 +1,6 @@
 Forward
 Backward
-Loop 5 {
+Loop 3 {
   Loop 2 {
     Left
   }

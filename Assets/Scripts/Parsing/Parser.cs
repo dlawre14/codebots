@@ -22,7 +22,16 @@ public class Parser {
 		while (i < tokens.Count) {
 			if (tokens[i] == "Loop") {
 				List<string> subtokens = new List<string>();
-				int loop_times = System.Convert.ToInt32 (tokens[i+1]);
+				int loop_times;
+				try {
+					loop_times = System.Convert.ToInt32 (tokens[i+1]);
+				}
+				catch (System.FormatException e) {
+					throw new System.FormatException("Loop count must be an integer!");
+				}
+				if (loop_times < 2)
+					throw new System.OverflowException("Loop count must be at least 2!");
+
 				if (tokens[i+2] == "{") {
 					i+=3;
 					int close_bracket_count = 1;
@@ -35,9 +44,8 @@ public class Parser {
 							subtokens.Add (tokens[i]);
 							i++;
 						}
-						if (i > tokens.Count) {
-							output.Clear ();
-                            return output;
+						if (i >= tokens.Count) {
+							throw new System.Exception("Missing at least one closing '}'");
                         }
                     }
 					Looper(loop_times, subtokens);
@@ -73,7 +81,15 @@ public class Parser {
 			while (i < tokens.Count) {
 				if (tokens[i] == "Loop") {
 					List<string> subtokens = new List<string>();
-					int loop_times = System.Convert.ToInt32 (tokens[i+1]);
+					int loop_times;
+					try {
+						loop_times = System.Convert.ToInt32 (tokens[i+1]);
+					}
+					catch (System.FormatException e) {
+						throw new System.FormatException("Loop count must be an integer!");
+					}
+					if (loop_times < 2)
+						throw new System.OverflowException("Loop count must be at least 2!");
 					if (tokens[i+2] == "{") {
 						i+=3;
 						int close_bracket_count = 1;
@@ -86,9 +102,8 @@ public class Parser {
 								subtokens.Add (tokens[i]);
 								i++;
 							}
-							if (i > tokens.Count) {
-								output.Clear ();
-								return;
+							if (i >= tokens.Count) {
+								throw new System.Exception("Missing at least one closing '}'");
 							}
 						}
 						Looper(loop_times, subtokens);
