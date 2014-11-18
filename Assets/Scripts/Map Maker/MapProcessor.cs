@@ -38,8 +38,7 @@ public class MapProcessor : MonoBehaviour {
 				obj_colors.Add (tokens[0] + "," + tokens[2], GameObject.Find ("(" + tokens[0] + "," + tokens[1] + "," + tokens[2] + ")").GetComponent<BuildingBlock>().color.name);
 		}
 
-		foreach (KeyValuePair<string,int> entry in obj_heights)
-			Debug.Log (entry.Key + "--" + entry.Value + "--" + obj_colors[entry.Key]);
+		//TODO Output to a map file
 	}
 
 }

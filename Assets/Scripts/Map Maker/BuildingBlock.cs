@@ -47,5 +47,23 @@ public class BuildingBlock : MonoBehaviour {
 			b.color = color;
 			b.gameObject.name = "(" + b.position.x + "," + b.position.y + "," + b.position.z + ")";
 		}
+
+		if (c.name == "West" && position.z > 0) {
+			BuildingBlock b = ((GameObject)Instantiate (block, position - Vector3.forward, Quaternion.identity)).GetComponent<BuildingBlock>();
+			b.position = position - Vector3.forward;
+			b.color = color;
+			b.gameObject.name = "(" + b.position.x + "," + b.position.y + "," + b.position.z + ")";
+		}
+
+		if (c.name == "North" && position.x > 0) {
+			BuildingBlock b = ((GameObject)Instantiate (block, position - Vector3.right, Quaternion.identity)).GetComponent<BuildingBlock>();
+			b.position = position - Vector3.right;
+			b.color = color;
+			b.gameObject.name = "(" + b.position.x + "," + b.position.y + "," + b.position.z + ")";
+		}
+	}
+
+	void BlockRightClicked() {
+		Debug.Log ("Right clicked!");
 	}
 }

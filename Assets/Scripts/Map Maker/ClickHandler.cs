@@ -16,5 +16,12 @@ public class ClickHandler : MonoBehaviour {
 				hit.collider.SendMessageUpwards("BlockClicked", hit.collider);
 			}
 		}
+
+		if (Input.GetKeyDown(KeyCode.Mouse1)) {
+			RaycastHit hit;
+			if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, 200.0f)) {
+				hit.collider.SendMessageUpwards("BlockRightClicked", hit.collider);
+			}
+		}
 	}
 }
