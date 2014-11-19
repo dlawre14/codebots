@@ -45,6 +45,14 @@ public class Block : MonoBehaviour {
 
 	//We check if where we want to move is valid, assume mov components are at most 1 and at least -1
 	public bool IsMoveValid(Vector3 mov) {
+		if (pos.x + mov.x < 0 || pos.y + mov.y < 0 || pos.z + mov.z < 0) {
+			return false;
+		}
+
+		if (pos.x + mov.x > 50 || pos.y + mov.y > 50 || pos.z + mov.z > 50) {
+			return false;
+		}
+
 		if (map[(int)pos.x + (int)mov.x, (int)pos.y + (int)mov.y, (int)pos.z + (int)mov.z] != null) {
 			if (map[(int)pos.x + (int)mov.x, (int)pos.y + (int)mov.y, (int)pos.z + (int)mov.z].isTop) {
 				return true;

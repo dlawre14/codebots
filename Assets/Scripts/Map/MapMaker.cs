@@ -18,11 +18,13 @@ public class MapMaker : MonoBehaviour {
 
 	public List<string> texture_names;
 	public List<Texture> textures;
-
-	private static char[] delims = {'(', ')', ' '};
+	
 	private Block[,,] blocks;
 
 	// Use this for initialization
+
+	#region old_version
+	/*
 	void Start () {
 				string text = map_file.text;
 				string[] lines = text.Split ('\n');
@@ -78,7 +80,54 @@ public class MapMaker : MonoBehaviour {
 		blocks[8,8,0].spawn = true;
 
 		comp = true;
+	} */
+	#endregion
+
+	#region new_version
+
+	public void Start() {
+
+		Vector3 currpos = Vector3.zero;
+
+		blocks = new Block[50,50,50];
+
+		string text = map_file.text;
+		char[] delim = {'{','}'};
+
+		string[] layers = text.Split (delim, System.StringSplitOptions.RemoveEmptyEntries);
+
+		//this is a layer
+		foreach (string s in layers) {
+			//Cleaning up leftover junk
+			if (s.Contains("(")) {
+				string[] rows = s.Split (new char[] {'\n'}, System.StringSplitOptions.RemoveEmptyEntries);
+
+				//this is a row
+				foreach (string s2 in rows) {
+					string[] entries = s2.Split(new char[] {'(',')'}, System.StringSplitOptions.RemoveEmptyEntries);
+					//this is a block
+					foreach (string s3 in entries) {
+						if (s3 != "0") {
+							GameObject g = (GameObject) Instantiate(block_prefab, currpos, Quaternion.identity);
+							if (texture_names.Contains(s3)) {
+								g.GetComponent<Block>().UpdateTexture(textures[texture_names.IndexOf(s3)]);
+							}
+							blocks [(int)currpos.x, (int)currpos.z, (int)currpos.y] = g.GetComponent<Block>();
+						}
+						currpos += Vector3.right;
+					}
+					currpos = new Vector3 (0, currpos.y, currpos.z);
+					currpos += Vector3.forward;
+				}
+				currpos = new Vector3 (0, currpos.y + 1, 0);
+			}
+		}
+
+		comp = true;
+		blocks [0, 0, 0].spawn = true;
 	}
+
+	#endregion
 
 	public Block[,,] GetBlocks() {
 		return blocks;
