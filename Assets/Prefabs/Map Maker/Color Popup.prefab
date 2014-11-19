@@ -97,6 +97,7 @@ GameObject:
   - 224: {fileID: 22400010}
   - 222: {fileID: 22200008}
   - 114: {fileID: 11400014}
+  - 114: {fileID: 11400016}
   m_Layer: 5
   m_Name: Button Panel
   m_TagString: Untagged
@@ -294,6 +295,26 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11400016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1297475563, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -323,6 +344,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 953fc2af0d716d744b9ba74d507ab6c9, type: 3}
   - {fileID: 2800000, guid: f829180cbc8c447438b431e1a50114d6, type: 3}
   - {fileID: 2800000, guid: a3d6804ce7e78cd49b33b4ddb5a440e7, type: 3}
+  panel: {fileID: 100010}
   button: {fileID: 100002, guid: a7755157cceb5a14780666744ab015ec, type: 2}
   target: {fileID: 0}
 --- !u!222 &22200000

@@ -8,5 +8,7 @@ public class ColorButton : MonoBehaviour {
 
 	public void ColorTarget() {
 		target.GetComponent<BuildingBlock> ().color = color;
+
+		SendMessageUpwards ("ColorPicked");
 	}
 }

@@ -7,6 +7,7 @@ public class ColorPopup : MonoBehaviour {
 	public string[] labels;
 	public Texture[] colors;
 
+	public GameObject panel;
 	public GameObject button;
 
 	public GameObject target;
@@ -15,7 +16,7 @@ public class ColorPopup : MonoBehaviour {
 	void Start () {
 		for (int i = 0; i < labels.Length; i++) {
 			GameObject g = (GameObject) Instantiate(button, Vector3.zero, Quaternion.identity);
-			g.transform.parent = GameObject.Find ("Button Panel").transform;
+			g.transform.parent = panel.transform;
 
 			g.GetComponentInChildren<Text>().text = labels[i];
 			ColorButton cb = g.GetComponent<ColorButton>();
@@ -25,8 +26,7 @@ public class ColorPopup : MonoBehaviour {
 
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	public void ColorPicked() {
+		Destroy (gameObject);
 	}
 }
