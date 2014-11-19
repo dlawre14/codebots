@@ -7,7 +7,7 @@ public class Block : MonoBehaviour {
 	public bool spawn;
 
 	private Block[,,] map;
-	private Vector3 pos;
+	public Vector3 pos;
 
 	public Vector3 position {
 		get {
@@ -45,33 +45,13 @@ public class Block : MonoBehaviour {
 
 	//We check if where we want to move is valid, assume mov components are at most 1 and at least -1
 	public bool IsMoveValid(Vector3 mov) {
-		if (pos.x + mov.x < 0 || pos.y + mov.y < 0 || pos.z + mov.z < 0) {
-			return false;
-		}
-
-		if (pos.x + mov.x > 50 || pos.y + mov.y > 50 || pos.z + mov.z > 50) {
-			return false;
-		}
-
-		if (map[(int)pos.x + (int)mov.x, (int)pos.y + (int)mov.y, (int)pos.z + (int)mov.z] != null) {
-			if (map[(int)pos.x + (int)mov.x, (int)pos.y + (int)mov.y, (int)pos.z + (int)mov.z].isTop) {
-				return true;
-			}
-			else
-				return false;
-		}
-		else
-			return false;
+		//TODO Setup IsMove
+		return true;
 	}
 
 	public Block GetBlock(Vector3 mov) {
-		if (map[(int)pos.x + (int)mov.x, (int)pos.y + (int)mov.y, (int)pos.z + (int)mov.z] == null) {
-			Debug.LogError ("Tried to grab a non-existant block...");
-			return null;
-		}
-		else {
-			return map[(int)pos.x + (int)mov.x, (int)pos.y + (int)mov.y, (int)pos.z + (int)mov.z];
-		}
+		//TODO Setup GetBlock
+		return this;
 	}
 
 	public void UpdateTexture(Texture t) {

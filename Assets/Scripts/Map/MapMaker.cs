@@ -123,6 +123,17 @@ public class MapMaker : MonoBehaviour {
 			}
 		}
 
+		for (int i=1; i<50; i++) {
+			for (int j=1; j<50; j++) {
+				for (int k=0; k<50; k++) {
+					if (blocks[i,j,k] != null) {
+						blocks[i,j,k].SetPos (new Vector3 (i,j,k));
+						blocks[i,j,k].SetMap (blocks);
+					}
+				}
+			}
+		}
+
 		comp = true;
 		blocks [0, 0, 0].spawn = true;
 	}
