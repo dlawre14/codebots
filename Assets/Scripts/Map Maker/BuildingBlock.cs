@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BuildingBlock : MonoBehaviour {
@@ -8,6 +9,8 @@ public class BuildingBlock : MonoBehaviour {
 
 	public GameObject block;
 	public Texture color;
+
+	public GameObject popup;
 
 	// Use this for initialization
 	void Start () {
@@ -64,6 +67,9 @@ public class BuildingBlock : MonoBehaviour {
 	}
 
 	void BlockRightClicked() {
-		Debug.Log ("Right clicked!");
+		GameObject p = (GameObject) Instantiate (popup, Input.mousePosition, Quaternion.identity);
+		p.transform.parent = GameObject.Find ("Canvas").transform;
+
+		p.GetComponent<BasePopup> ().target = gameObject;
 	}
 }

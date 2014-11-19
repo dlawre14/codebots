@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ClickHandler : MonoBehaviour {
@@ -10,17 +11,19 @@ public class ClickHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Mouse0)) {
-			RaycastHit hit;
-			if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, 200.0f)) {
-				hit.collider.SendMessageUpwards("BlockClicked", hit.collider);
+		if (GameObject.FindWithTag("Popup") == null) {
+			if (Input.GetKeyDown(KeyCode.Mouse0)) {
+				RaycastHit hit;
+				if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, 200.0f)) {
+					hit.collider.SendMessageUpwards("BlockClicked", hit.collider);
+				}
 			}
-		}
 
-		if (Input.GetKeyDown(KeyCode.Mouse1)) {
-			RaycastHit hit;
-			if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, 200.0f)) {
-				hit.collider.SendMessageUpwards("BlockRightClicked", hit.collider);
+			if (Input.GetKeyDown(KeyCode.Mouse1)) {
+				RaycastHit hit;
+				if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, 200.0f)) {
+					hit.collider.SendMessageUpwards("BlockRightClicked", hit.collider);
+				}
 			}
 		}
 	}

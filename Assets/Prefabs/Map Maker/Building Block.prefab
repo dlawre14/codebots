@@ -317,6 +317,7 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   block: {fileID: 100010}
   color: {fileID: 2800000, guid: 0b38ce6cc15ed404fb25511b35410757, type: 3}
+  popup: {fileID: 100000, guid: 5d5ee6908f890114c9b334eb0d537165, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
