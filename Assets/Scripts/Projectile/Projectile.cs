@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour {
 	}
 
 	IEnumerator StartDestroy() {
-		yield return new WaitForSeconds(1.5f);
+		yield return new WaitForSeconds(GetComponent<ParticleSystem> ().duration * 2);
 		Destroy (gameObject);
 	}
 }

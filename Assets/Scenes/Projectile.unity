@@ -117,6 +117,58 @@ Prefab:
       propertyPath: m_Name
       value: Projectile
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 95511d772e5b76d4eb25fa07a2598b21, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 95511d772e5b76d4eb25fa07a2598b21, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 95511d772e5b76d4eb25fa07a2598b21, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 95511d772e5b76d4eb25fa07a2598b21, type: 2}
+      propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 95511d772e5b76d4eb25fa07a2598b21, type: 2}
+      propertyPath: ShapeModule.radius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 95511d772e5b76d4eb25fa07a2598b21, type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 95511d772e5b76d4eb25fa07a2598b21, type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 95511d772e5b76d4eb25fa07a2598b21, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 95511d772e5b76d4eb25fa07a2598b21, type: 2}
+      propertyPath: InitialModule.gravityModifier
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 95511d772e5b76d4eb25fa07a2598b21, type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 2500
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 95511d772e5b76d4eb25fa07a2598b21, type: 2}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 95511d772e5b76d4eb25fa07a2598b21, type: 2}
+      propertyPath: EmissionModule.rate.scalar
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 95511d772e5b76d4eb25fa07a2598b21, type: 2}
+      propertyPath: lengthInSec
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95511d772e5b76d4eb25fa07a2598b21, type: 2}
   m_RootGameObject: {fileID: 972009413}
@@ -292,7 +344,7 @@ Transform:
   m_GameObject: {fileID: 972009413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 362.649994, y: 63.4640007, z: -9.48569965}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -352,18 +404,18 @@ ParticleSystem:
     type: 2}
   m_PrefabInternal: {fileID: 211394421}
   m_GameObject: {fileID: 972009413}
-  lengthInSec: 5
+  lengthInSec: 3
   startDelay: 0
   speed: 1
   randomSeed: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   moveWithTransform: 1
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 2
+      scalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -396,7 +448,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: 1.2501936
+      scalar: .25
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -523,7 +575,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 1
+      scalar: .25
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -590,12 +642,12 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 1000
+    maxNumParticles: 2500
   ShapeModule:
     serializedVersion: 2
     enabled: 1
     type: 0
-    radius: .116074562
+    radius: 10
     angle: 0
     length: 5
     boxX: 1
@@ -608,7 +660,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 250
+      scalar: 1500
       maxCurve:
         serializedVersion: 2
         m_Curve:
