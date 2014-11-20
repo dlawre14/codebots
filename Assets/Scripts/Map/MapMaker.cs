@@ -135,7 +135,7 @@ public class MapMaker : MonoBehaviour {
 		}
 
 		comp = true;
-		blocks [0, 0, 0].spawn = true;
+		blocks [2, 4, 0].spawn = true;
 	}
 
 	#endregion
