@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class MapProcessor : MonoBehaviour {
 
+	public Texture debug;
+
 	public void MakeMap() {
 		GameObject[] objs = GameObject.FindGameObjectsWithTag ("Map Block");
 
@@ -17,28 +19,18 @@ public class MapProcessor : MonoBehaviour {
 
 		obj_names.Sort ();
 
-		char[] delims = {'(',')',','};
-		string prev_xz = "";
+		StartCoroutine (ColorTrack (obj_names));
 
-		foreach (string s in obj_names) {
-			string[] temp = s.Split(delims);
-			List<string> tokens = new List<string>();
-
-			foreach (string s2 in temp) {
-				if (s2 != " " && s2 != "")
-					tokens.Add (s2);
-			}
-
-			if (!obj_heights.ContainsKey(tokens[0] + "," + tokens[2]))
-				obj_heights.Add (tokens[0] + "," + tokens[2], 1);
-			else
-				obj_heights[tokens[0] + "," + tokens[2]] += 1;
-
-			if (tokens[1] == "0")
-				obj_colors.Add (tokens[0] + "," + tokens[2], GameObject.Find ("(" + tokens[0] + "," + tokens[1] + "," + tokens[2] + ")").GetComponent<BuildingBlock>().color.name);
-		}
+		//The inner list is a layer
+		List<List<string>> maplist = new List<List<string>> ();
 
 		//TODO Output to a map file
 	}
 
+	IEnumerator ColorTrack(List<string> obj_names) {
+		foreach (string s in obj_names) {
+			GameObject.Find (s).GetComponent<BuildingBlock>().color = debug;
+			yield return new WaitForSeconds(1);
+		}
+	}
 }

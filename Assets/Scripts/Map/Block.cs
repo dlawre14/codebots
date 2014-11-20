@@ -46,12 +46,30 @@ public class Block : MonoBehaviour {
 	//We check if where we want to move is valid, assume mov components are at most 1 and at least -1
 	public bool IsMoveValid(Vector3 mov) {
 		//TODO Setup IsMove
+		if (pos.x + mov.x < 0 || pos.y + mov.y < 0 || pos.y + mov.y < 0) {
+			Debug.Log ("Move index out of range...");
+			return false;
+		} else {
+			if (map[(int) (pos.x + mov.x), (int) (pos.y + mov.y), (int) (pos.z + mov.z)] == null) {
+				return false;
+			}
+			else {
+				if (!map[(int) (pos.x + mov.x), (int) (pos.y + mov.y), (int) (pos.z + mov.z)].isTop) {
+					return false;
+				}
+			}
+		}
 		return true;
 	}
 
 	public Block GetBlock(Vector3 mov) {
 		//TODO Setup GetBlock
-		return this;
+		if (IsMoveValid (mov)) {
+			return map[(int) (pos.x + mov.x), (int) (pos.y + mov.y), (int) (pos.z + mov.z)];
+		}
+		else {
+			return this;
+		}
 	}
 
 	public void UpdateTexture(Texture t) {
