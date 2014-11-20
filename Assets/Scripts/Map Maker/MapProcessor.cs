@@ -8,6 +8,9 @@ public class MapProcessor : MonoBehaviour {
 	public Texture debug;
 
 	public void MakeMap() {
+		if (Application.platform == RuntimePlatform.WindowsWebPlayer)
+			return;
+
 		GameObject[] objs = GameObject.FindGameObjectsWithTag ("Map Block");
 
 		List<string> obj_names = new List<string> ();
