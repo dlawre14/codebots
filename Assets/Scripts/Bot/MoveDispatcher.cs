@@ -38,9 +38,9 @@ public class MoveDispatcher : MonoBehaviour {
 
 	public void DispatchSubroutine(InputField input) {
 		Parser p = new Parser();
-		List<string> moves = p.Parse (input.value);
+		List<string> moves = p.Parse (input.text);
 		StartCoroutine (SubroutineDispatcher(moves));
-		input.value = "";
+		input.text = "";
 	}
 
 	IEnumerator SubroutineDispatcher(List<string> moves) {
