@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle with Point Comp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 100000, guid: 0c08753effa38d34ebc3e81f91e6b278, type: 2}
-  num_particles: 100
+  num_particles: 25
   xz_plane_strength: 3
   y_strength: 3
   upward_only: 0
