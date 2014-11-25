@@ -28,5 +28,7 @@ public class LightBurstParticle : MonoBehaviour {
                     g.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-xz_plane_strength, xz_plane_strength), Random.Range(min_upward, y_strength), Random.Range(-xz_plane_strength, xz_plane_strength));
             }
         }
+
+		Destroy (gameObject);
     }
 }

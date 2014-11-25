@@ -40,11 +40,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 100000, guid: 0c08753effa38d34ebc3e81f91e6b278, type: 2}
-  num_particles: 25
-  xz_plane_strength: 3
-  y_strength: 3
+  num_particles: 50
+  xz_plane_strength: 5
+  y_strength: 5
   upward_only: 0
-  min_upward: 3
+  min_upward: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
