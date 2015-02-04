@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   block_prefab: {fileID: 100000, guid: ad7716b20de66b940b208c1b20da1008, type: 2}
-  map_file: {fileID: 4900000, guid: 417816e36f77a9e4bbc59516206cde82, type: 3}
+  map_file: {fileID: 4900000, guid: a0787ddf0b07d5046a67f6f19540d2b0, type: 3}
   texture_names:
   - red
   - green

@@ -41,8 +41,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 100000, guid: 0c08753effa38d34ebc3e81f91e6b278, type: 2}
   num_particles: 50
-  xz_plane_strength: 5
-  y_strength: 5
+  xz_plane_strength: 2
+  y_strength: 2
   upward_only: 0
   min_upward: 5
 --- !u!1001 &100100000
