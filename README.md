@@ -1,5 +1,10 @@
 ###Codebots: a game about coding bots
 
+####Preface
+After working on this project for some time I have realized it is not and never will really be what I envisioned. I have learned a lot about what will and won't work and I do wish to pursue a proper Codebots game in the future. However this game will never be a game that is fun to play or fun to learn from. My goal in this repository is to get the *game* to a playable state. Given much more time, I would start from the ground up with a new set of core mechanics.
+
+I am happy with what I learned here and though there is no final product, I am glad I was able to push this as far as I did.
+
 ####Premise
 The premise of Codebots is to create a game focused on illustrating how useful and fun programming is in the modern world. There's only so many ways to do "Hello, World!" and none of them are fun. However, having a bot blow up another bot with some simple code, that is fun for everyone.
 
