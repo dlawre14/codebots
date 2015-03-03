@@ -7,7 +7,7 @@ public class MapProcessor : MonoBehaviour {
 
 	public Texture debug;
 
-	public void MakeMap() {
+	public void MakeMap(string name) {
 		if (Application.platform == RuntimePlatform.WindowsWebPlayer)
 			return;
 
@@ -45,7 +45,7 @@ public class MapProcessor : MonoBehaviour {
 			maplist[maplist.Count -1] += "}\n";
 		}
 
-		StreamWriter writer = new StreamWriter ("Assets/Maps/New Style/testmap.txt");
+		StreamWriter writer = new StreamWriter ("Assets/Maps/New Style/" + name + ".txt");
 		foreach (string s in maplist) {
 			writer.Write(s);
 		}

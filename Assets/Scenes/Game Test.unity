@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   block_prefab: {fileID: 100000, guid: ad7716b20de66b940b208c1b20da1008, type: 2}
-  map_file: {fileID: 4900000, guid: a0787ddf0b07d5046a67f6f19540d2b0, type: 3}
+  map_file: {fileID: 4900000, guid: 36d27961bfe00e5459748af4876796a2, type: 3}
   texture_names:
   - red
   - green
@@ -949,7 +949,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
